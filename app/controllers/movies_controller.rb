@@ -33,9 +33,11 @@ class MoviesController < ApplicationController
     
     if sort == "title" 
       @movies = Movie.with_ratings(ratings).order(:title)
+      session[:sort_by] = 'title'
       
     elsif sort == "release_date"
       @movies = Movie.with_ratings(ratings).order(:release_date)
+      session[:sort_by] = 'release_date'
      
     else
       @movies = Movie.with_ratings(ratings)
